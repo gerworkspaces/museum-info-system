@@ -1,0 +1,43 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@iconify/vue": "^4.1.2",
+    "@paypal/checkout-server-sdk": "^1.0.3",
+    "@paypal/paypal-js": "^8.1.2",
+    "@types/bcrypt": "^5.0.2",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/jwt-decode": "^3.1.0",
+    "axios": "^1.7.7",
+    "bcrypt": "^5.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
+    "lodash": "^4.17.21",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.11.3",
+    "nuxt": "^3.13.2",
+    "nuxt-file-storage": "^0.2.9",
+    "pinia": "^2.2.6",
+    "vue": "latest",
+    "vue-lodash": "^2.1.2",
+    "vue-router": "latest",
+    "vue-slick-carousel": "^1.0.5"
+  },
+  "devDependencies": {
+    "@paypal/checkout-server-sdk": "^1.0.3",
+    "@types/multer": "^1.4.12",
+    "@types/paypal__checkout-server-sdk": "^1.0.8",
+    "autoprefixer": "^10.4.20",
+    "nuxt-paypal": "^0.0.1-beta",
+    "tailwindcss": "^3.4.14",
+    "postcss": "^8.4.47"
+  }
+}
