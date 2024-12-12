@@ -1,0 +1,149 @@
+<template>
+  <header>
+    <div class="container mx-auto flex w-full mt-5">
+      <nuxt-link to="/home" class="wrap-logo w-2/6 flex">
+        <div>
+          <img :src="logoImage" alt="logo_img" class="w-20 h-20" />
+        </div>
+        <div
+          class="title font-bold text-2xl tracking-widest text-center p-3 content-center text-secondary uppercase"
+        >
+          <h1>museum danang</h1>
+        </div>
+      </nuxt-link>
+      <div class="wrap-nav w-4/6 flex items-center">
+        <ul class="list-none flex justify-between w-4/6">
+          <li>
+            <nuxt-link to="/about" class="text-lg font-medium p-2"
+              >About</nuxt-link
+            >
+          </li>
+          <li>
+            <nuxt-link to="/news" class="text-lg font-medium p-2"
+              >News</nuxt-link
+            >
+          </li>
+          <li>
+            <nuxt-link to="/museums" class="text-lg font-medium p-2"
+              >Museums</nuxt-link
+            >
+          </li>
+          <li>
+            <nuxt-link to="/tickets" class="text-lg font-medium p-2"
+              >Tickets</nuxt-link
+            >
+          </li>
+          <li>
+            <nuxt-link to="/events" class="text-lg font-medium p-2"
+              >Events</nuxt-link
+            >
+          </li>
+        </ul>
+
+        <div class="flex justify-end w-2/6 items-center">
+          <div v-if="!userStore.userInfo" class="flex gap-2">
+            <nuxt-link to="/login">
+              <button class="bg-secondary text-white px-4 py-2 rounded-md">
+                Đăng nhập
+              </button>
+            </nuxt-link>
+            <nuxt-link to="/register-account">
+              <button class="bg-secondary text-white px-4 py-2 rounded-md">
+                Đăng ký
+              </button>
+            </nuxt-link>
+          </div>
+          <div v-if="userStore.userInfo" class="relative mx-4 dropdown-container wrap-dropdown">
+            <Icon icon="lets-icons:user-fill" width="48" height="48" />
+            <!-- Dropdown menu -->
+            <div
+              class="dropdown-menu absolute right-0 text-black mt-2 w-40 bg-white border rounded shadow-lg hidden z-10"
+            >
+              <ul class="flex flex-col text-left">
+                <li>
+                  <nuxt-link
+                    to="/home/profile"
+                    class="block px-4 py-2 hover:bg-gray-100"
+                    >Profile</nuxt-link
+                  >
+                </li>
+                <li>
+                  <a
+                    @click.prevent="logout"
+                    class="block px-4 py-2 hover:bg-gray-100"
+                    >Đăng xuất</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</template>
+
+<script lang="ts" setup>
+import logoImage from "@/assets/images/logo.png";
+import { Icon } from "@iconify/vue";
+import { useUserStore } from "@/stores/user-store"; // Import user store
+import { useRouter } from "vue-router"; // Import router
+
+const userStore = useUserStore();
+const router = useRouter();
+
+const logout = async () => {
+  try {
+    await $fetch("/api/auth", {
+      method: "DELETE",
+    });
+    localStorage.removeItem("token"); // Remove token from local storage
+    userStore.logout(); // Clear user info from store
+    router.push("/login"); // Redirect to home page
+  } catch (error) {
+    console.error("Logout failed:", error);
+  }
+};
+
+</script>
+
+<style scoped>
+.wrap-dropdown::after {
+  width: 22px;
+  height: 20px;
+  content: "";
+  position: absolute;
+  right: 0.75rem;
+  transform: translateY(-50%);
+}
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.w-40 {
+  width: 10rem;
+}
+.bg-white {
+  background-color: white;
+}
+.border {
+  border: 1px solid #e2e8f0;
+}
+.rounded {
+  border-radius: 0.25rem;
+}
+.shadow-lg {
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+.hover\:bg-gray-100:hover {
+  background-color: #f7fafc;
+}
+.dropdown-container:hover .dropdown-menu {
+  display: block;
+}
+.hidden {
+  display: none;
+}
+</style>
