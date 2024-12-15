@@ -4,6 +4,23 @@
       class="container mx-auto flex flex-row items-center justify-center px-24"
     >
       <!-- Ảnh sự kiện -->
+      <!-- //+
+       * Renders the image section of the event card.//+
+       * //+
+       * @component//+
+       * @description This component displays the event image along with a decorative plus icon.//+
+       *              It's positioned on the left side of the card and takes up half the width.//+
+       * //+
+       * @prop {string} props.image - The URL of the event image to be displayed.//+
+       * //+
+       * @example//+
+       * <template>//+
+       *   <div class="w-1/2 order-1 relative image-event">//+
+       *     <img :src="props.image" alt="Event img" class="min-w-96 h-72 object-cover rounded-lg" />//+
+       *     <img :src="plusImg" alt="Plus icon" class="absolute top-14 left-4 w-32 h-40 rotate-180" />//+
+       *   </div>//+
+       * </template>//+
+       -->//+
       <div class="w-1/2 order-1 relative image-event">
         <img
           :src="props.image"

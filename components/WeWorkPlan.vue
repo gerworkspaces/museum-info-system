@@ -8,14 +8,16 @@
           <span> with planning </span>
         </h2>
         <p class="mb-6">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed
-          rhoncus viverra leo. Vivamus sollicitudin ex id libero pretium, mattis
-          euism sit amet porttitor nibh cursus morbi lacus sem elicted.
+          My system has developed a project that allows booking event services.
+          With our system, the main functions are:
         </p>
         <ul class="list-disc list-inside text-gray-700 space-y-2">
-          <li>Extreme of Goods</li>
-          <li>Museum's standard</li>
-          <li>Software Development Officer</li>
+          <li>View each service package</li>
+          <li>Service details</li>
+          <li>View service progress</li>
+          <li>Compare prices transparently</li>
+          <li>Service management</li>
+          <li>User management</li>
         </ul>
       </div>
 

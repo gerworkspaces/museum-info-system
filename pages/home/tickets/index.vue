@@ -48,7 +48,7 @@
                   {{ ticket.ticket_description }}
                 </p>
                 <p class="mt-4 text-sm text-gray-500 pt-5">
-                  By
+                  [Tags Events]
                   {{
                     events.find((event) => event.event_id === ticket.event_id)
                       ?.event_name

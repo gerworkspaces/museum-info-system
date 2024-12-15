@@ -9,8 +9,8 @@
           :src="`/images/${userStore.userInfo?.image}`"
           alt="Avatar"
           class="h-24 w-24 rounded-full border border-gray-300"
-          />
-          <!-- + format ava admin + -->
+        />
+        <!-- + format ava admin + -->
         <!-- <div>
           <p class="text-white text-sm font-semibold">Admin</p>
           <p class="text-white text-lg font-bold">Quang Vo</p>
@@ -165,7 +165,12 @@ const userStore = useUserStore();
 console.log("User Info in Admin:", userStore.userInfo);
 
 const itemsOverview = reactive([
-  { label: "Dashboard", active: false, url: "/admin", icon: "iconamoon:clock" },
+  {
+    label: "Dashboard",
+    active: false,
+    url: "/admin",
+    icon: "iconamoon:clock",
+  },
   {
     label: "Museums",
     active: false,

@@ -594,7 +594,8 @@ const closeConfirmModal = () => {
 };
 
 const saveMuseum = async () => {
-  if (files.value) {
+  if (files.value.length !== 0) {
+    console.log(files);
     const response = await $fetch("/api/upload-file", {
       method: "POST",
       body: {
@@ -642,7 +643,7 @@ const closeAddModal = () => {
 };
 
 const addMuseum = async () => {
-  if (files.value) {
+  if (files.value.length !== 0) {
     const response = await $fetch("/api/upload-file", {
       method: "POST",
       body: {

@@ -237,7 +237,7 @@
               disabled
             >
               <option
-                v-for="event in eventList"
+                v-for="event in availableEvents"
                 :key="event.event_id"
                 :value="event.event_id"
               >
@@ -402,6 +402,7 @@
               v-model="newTicket.event_id"
               class="mt-1 block w-full outline-none p-2 rounded-md text-black"
             >
+              <option value="" disabled>Select a Event</option>
               <option
                 v-for="event in availableEvents"
                 :key="event.event_id"
@@ -566,7 +567,8 @@ const closeConfirmModal = () => {
 };
 
 const saveTicket = async () => {
-  if (files.value) {
+  if (files.value.length !== 0) {
+    console.log(files);
     const response = await $fetch("/api/upload-file", {
       method: "POST",
       body: {

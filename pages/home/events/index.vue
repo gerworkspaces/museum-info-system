@@ -7,7 +7,7 @@
       backgroundImage="/images/banner-about.png"
     />
 
-    <div class="my-8" v-for="(event, index) in paginatedEvents" :key="event.event_id">
+    <div v-for="(event, index) in paginatedEvents" :key="event.event_id">
       <component
         :is="index % 2 === 0 ? EventCardRight : EventCardLeft"
         :dateRange="event.event_date"

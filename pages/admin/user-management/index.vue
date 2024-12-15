@@ -585,8 +585,8 @@ const closeConfirmModal = () => {
 };
 
 const saveUser = async () => {
-  if (files.value.length!==0) {
-    console.log(files)
+  if (files.value.length !== 0) {
+    console.log(files);
     const response = await $fetch("/api/upload-file", {
       method: "POST",
       body: {
@@ -632,7 +632,7 @@ const closeAddModal = () => {
 };
 
 const addUser = async () => {
-  if (files.value.length!==0) {
+  if (files.value.length !== 0) {
     const response = await $fetch("/api/upload-file", {
       method: "POST",
       body: {

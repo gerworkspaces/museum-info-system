@@ -11,23 +11,42 @@
           <img
             :src="member.image"
             alt="team_member"
-            class="w-80 h-64 rounded-sm object-cover mb-4"
+            class="w-72 h-60 rounded-sm object-cover mb-4"
           />
           <h3 class="text-black text-lg font-semibold">{{ member.name }}</h3>
           <p class="text-gray-600">{{ member.role }}</p>
+          <p class="text-gray-600">{{ member.role2 }}</p>
         </div>
       </div>
 
       <!-- Team Member Info -->
-      <div class="w-1/2 px-56 py-48 text-black">
-        <h2 class="text-2xl font-semibold mb-4">Our Team Member</h2>
+      <div class="w-1/2 px-28 py-44 text-black">
+        <h2 class="text-3xl font-semibold mb-4">Our Team Member</h2>
         <p class="mb-6">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed
-          rhoncus viverra leo. Vivamus sollicitudin ex id libero pretium, mattis
-          euism sit amet porttitor nibh cursus morbi lacus sem elicted.
+          This project aims to create a centralized website that aggregates
+          information from various museum websites in Da Nang. By consolidating
+          museum details, event updates, and ticket purchasing options, the
+          project addresses the issue of scattered information and enhances user
+          accessibility.
         </p>
-
-        <div v-for="(skill, index) in skills" :key="index" class="mb-4">
+        <span class="text-sm font-light mt-14">
+          <ul class="list-disc ml-5">
+            <li class="category">Scrum Master:</li>
+            <li class="item">
+              - Oversees project progress, timeline, and communication.
+            </li>
+            <li class="category">Product Owner:</li>
+            <li class="item">
+              - Develops the user interface. Responsible for backend
+              development.
+            </li>
+            <li class="category">Developer:</li>
+            <li class="item">
+              - Perform testing, report bugs, document review.
+            </li>
+          </ul>
+        </span>
+        <div v-for="(skill, index) in skills" :key="index" class="mt-10 mb-4">
           <div class="flex justify-between items-center mb-1">
             <span>{{ skill.name }}</span>
             <span>{{ skill.value }}%</span>
@@ -53,22 +72,24 @@ import memberImage from "@/assets/images/my-avt.png";
 
 const teamMembers = ref([
   {
-    name: "Quang Vo",
-    role: "Scrum Master",
+    name: "Võ Nguyễn Thanh Quang",
+    role: "Scrum Master - Developer",
+    role2: "UI/UX Designer",
     image: memberImage,
   },
   {
-    name: "Quang Vo",
+    name: "Trương Quang Nghĩa",
+    role: "Product Owner",
+    role2: "Developer",
+    image: memberImage,
+  },
+  {
+    name: "Nguyễn Khắc Chỉnh",
     role: "Developer",
     image: memberImage,
   },
   {
-    name: "Quang Vo",
-    role: "UI/UX Designer",
-    image: memberImage,
-  },
-  {
-    name: "Quang Vo",
+    name: "Trần Phước Định",
     role: "Developer",
     image: memberImage,
   },
@@ -77,8 +98,26 @@ const teamMembers = ref([
 const skills = ref([
   { name: "UI/UX Designer", value: 90, color: "bg-yellow-500" },
   { name: "Dev", value: 85, color: "bg-blue-500" },
-  { name: "Support", value: 75, color: "bg-green-500" },
+  { name: "Support", value: 90, color: "bg-green-500" },
 ]);
 </script>
 
-<style scoped></style>
+<style scoped>
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.category {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.item {
+  margin-left: 20px;
+}
+</style>
