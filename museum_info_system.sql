@@ -27,11 +27,22 @@ CREATE DATABASE IF NOT EXISTS museum_info_system
 
 USE museum_info_system;
 
+-- Tạo bảng Museums (Bảo tàng) với category_id
+CREATE TABLE museums (
+  museum_id int NOT NULL AUTO_INCREMENT,
+  name varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  location varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  description text COLLATE utf8mb4_general_ci,
+  museum_image text COLLATE utf8mb4_general_ci,
+  category_id varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  open_time time DEFAULT NULL,
+  close_time time DEFAULT NULL,
+  PRIMARY KEY (museum_id),
+  KEY category_id (category_id),
+  CONSTRAINT museums_ibfk_1 FOREIGN KEY (category_id) REFERENCES categories (category_id) ON DELETE SET NULL
+);
 
---
--- Table structure for table categories
---
-
+-- Tạo bảng categories (Danh mục bảo tàng) 
 CREATE TABLE categories (
   category_id varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   category_name varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
@@ -70,21 +81,6 @@ CREATE TABLE feedback (
   email varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   subject varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (feedback_id)
-);
-
--- Tạo bảng Museums (Bảo tàng) với category_id
-CREATE TABLE museums (
-  museum_id int NOT NULL AUTO_INCREMENT,
-  name varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  location varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  description text COLLATE utf8mb4_general_ci,
-  museum_image text COLLATE utf8mb4_general_ci,
-  category_id varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  open_time time DEFAULT NULL,
-  close_time time DEFAULT NULL,
-  PRIMARY KEY (museum_id),
-  KEY category_id (category_id),
-  CONSTRAINT museums_ibfk_1 FOREIGN KEY (category_id) REFERENCES categories (category_id) ON DELETE SET NULL
 );
 
 CREATE TABLE payments (
@@ -180,7 +176,7 @@ CREATE TABLE users (
 
 INSERT INTO categories VALUES 
 ('architecture','Kiến trúc'),
-('travel', 'Du lich')
+('travel', 'Du lich'),
 ('art','Nghệ thuật'),
 ('culture','Văn hóa'),
 ('history','Lịch sử'),
@@ -188,7 +184,8 @@ INSERT INTO categories VALUES
 ('music','Âm nhạc'),
 ('nature','Thiên nhiên'),
 ('science','Khoa học'),
-('technology','Công nghệ');
+('technology','Công nghệ'),
+('modern', 'Hiện đại');
 
 INSERT INTO event_tickets VALUES 
 (1,100,98,50.00,'Vé triển lãm cổ vật 1','wood-and-glass.png','Vé dành cho triển lãm cổ vật'),
@@ -205,9 +202,9 @@ INSERT INTO event_tickets VALUES
 (12,220,220,99.00,'Vé triển lãm văn học 1','literature-exhibit.png','Vé dành cho triển lãm văn học');
 
 INSERT INTO events VALUES 
-(1,'Triển lãm cổ vật thao tác bàn mài (chất liệu: đá)','2024-12-25','bàn mài.jpg','Bàn mài – khai quật tại di chỉ khảo cổ học Vườn đình Khuê Bắc, phường Hòa Hải, quận Ngũ Hành Sơn, thành phố Đà Nẵng, năm 2001, có niên đại thế kỷ thứ II sau công nguyên (thuộc giai đoạn văn hóa sơ kỳ kim khí tiền Sa Huỳnh).',1),
-(2,'Triển lãm tranh hiện đại (chất liệu: sơn dầu)','2024-12-15','vogueart0.jpg','Trưng bày các tác phẩm nghệ thuật hiện đại',2),
-(3,'Ngày hội Khoa học','2024-12-20','','Hoạt động giáo dục về khoa học',3),
+(1,'Sự kiện Triển lãm cổ vật thao tác bàn mài.','2024-12-25','bàn mài.jpg','Trưng bày Bàn mài – khai quật tại di chỉ khảo cổ học Vườn đình Khuê Bắc, phường Hòa Hải, quận Ngũ Hành Sơn, thành phố Đà Nẵng, năm 2001, có niên đại thế kỷ thứ II sau công nguyên (thuộc giai đoạn văn hóa sơ kỳ kim khí tiền Sa Huỳnh) (chất liệu: đá).',1),
+(2,'Sự kiện Triển lãm tranh nghệ thuật hiện đại.','2024-12-15','vogueart0.jpg','Trưng bày các tác phẩm tranh vẽ và các nghệ thuật hiện đại ngày nay đang có xu hướng được nhiều người quan tâm (chất liệu: sơn dầu).',2),
+(3,'Sự kiện Các đồng sáng lập nghiên cứu khoa học.','2024-12-20','event-science.jpg','Tổ chức các hoạt động giáo dục về khoa học từ các nhà nghiên cứu của tổ chức',3),
 (4,'Ngày hội thiên nhiên','2025-01-25','','Khám phá thiên nhiên và động vật',4),
 (5,'Triển lãm công nghệ','2025-01-10','','Giới thiệu các công nghệ mới',5),
 (6,'Lễ hội Văn hóa','2024-12-25','','Khám phá văn hóa các dân tộc',6),
@@ -227,6 +224,7 @@ INSERT INTO museums VALUES
 INSERT INTO payments VALUES 
 (1,3,1,50.00,'PayPal','Completed','3J2824738Y700254R','5SM15454DX877831D','5SM15454DX877831D','YK792X55R7QVN','USD','2024-12-11 16:07:44','2024-12-11 16:07:44');
 
+-- INSERT INTO `museum_info_system`.`post_types` (`post_type_id`, `post_type_name`) VALUES ('trending', 'Nổi bật');
 INSERT INTO post_types VALUES 
 ('announcement','Thông báo'),
 ('blog','Blog'),
@@ -238,7 +236,9 @@ INSERT INTO post_types VALUES
 ('relationship','Quan hệ'),
 ('review','Đánh giá'),
 ('role','Vai trò'),
-('update','Cập nhật');
+('update','Cập nhật'),
+('collection','Sưu tập'),
+('trending','Nổi bật'),
 
 INSERT INTO posts VALUES 
 (1,2,'[THÔNG BÁO] VỀ VIỆC DỪNG ĐÓN, PHỤC VỤ KHÁCH THAM QUAN BẢO TÀNG ĐÀ NẴNG TẠI ĐỊA ĐIỂM 24 TRẦN PHÚ, THÀNH PHỐ ĐÀ NẴNG','"Để tập trung thực hiện công tác di dời tài liệu, hiện vật phục vụ thi công trưng bày Bảo tàng Đà Nẵng tại địa điểm mới (số 42 – 44 Bạch Đằng và 31 Trần Phú), Bảo tàng Đà Nẵng thông báo dừng đón, phục vụ khách tham quan Bảo tàng và Di tích Quốc gia đặc biệt Thành Điện Hải tại địa điểm 24 Trần Phú, thành phố Đà Nẵng kể từ ngày 10 tháng 12 năm 2024."','2024-12-05','announcement','thong-bao-news.png'),
@@ -261,23 +261,6 @@ INSERT INTO review_event VALUES
 (5,5,5,'Đánh giá Triển lãm công nghệ','charlie.white@museum.com','Charlie White','Triển lãm công nghệ rất ấn tượng, nhưng giá vé hơi cao.',3);
 
 INSERT INTO roles VALUES (1,'Admin'),(2,'User'),(3,'Editor');
-
-CREATE TABLE users (
-  user_id int NOT NULL AUTO_INCREMENT,
-  username varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  email varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  phone varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  address_info varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  password_hash varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  role_id int DEFAULT NULL,
-  status_user varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  user_image varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (user_id),
-  UNIQUE KEY username (username),
-  UNIQUE KEY email (email),
-  KEY role_id (role_id),
-  CONSTRAINT users_ibfk_1 FOREIGN KEY (role_id) REFERENCES roles (role_id) ON DELETE SET NULL
-)
 
 INSERT INTO ticket_details VALUES 
 (1,1,2,'2024-12-11 16:02:21',2),
