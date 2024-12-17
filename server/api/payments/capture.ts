@@ -110,6 +110,22 @@ export default defineEventHandler(async (event) => {
 
         await pool.query(ticketDetailsQuery, [eventID, userID, ticketQuantity]);
 
+        // Cập nhật số lượng vé có sẵn trong bảng event_tickets
+        console.log("eventID", eventID);
+        console.log("ticketQuantity", ticketQuantity);
+
+        const updateTicketsQuery = `
+          UPDATE event_tickets
+          SET available_tickets = available_tickets - ?
+          WHERE event_id = ?
+        `;
+
+        const res = await pool.query(updateTicketsQuery, [
+          ticketQuantity,
+          eventID,
+        ]);
+        console.log("res", res);
+
         return {
           message: "Thanh toán thành công!",
           transactionID: paymentCapture.id, // ID giao dịch
