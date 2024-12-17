@@ -20,27 +20,27 @@
        *     <img :src="plusImg" alt="Plus icon" class="absolute top-14 left-4 w-32 h-40 rotate-180" />//+
        *   </div>//+
        * </template>//+
-       -->//+
+       -->
       <div class="w-1/2 order-1 relative image-event">
         <img
           :src="props.image"
           alt="Event img"
           class="min-w-96 h-72 object-cover rounded-lg"
         />
-        <img
+        <!-- <img
           :src="plusImg"
           alt="Plus icon"
           class="absolute top-14 left-4 w-32 h-40 rotate-180"
-        />
+        /> -->
       </div>
 
       <!-- Nội dung văn bản -->
       <div class="w-1/2 order-2 max-w-lg">
-        <div class="flex items-center mb-2">
+        <div class="flex items-center mb-2 ml-4">
           <div class="w-14 h-[2px] bg-yellow-400 mr-6"></div>
           <p class="text-yellow-400 uppercase text-sm">{{ dateRange }}</p>
         </div>
-        <div class="">
+        <div class="pl-7">
           <h2 class="text-2xl font-bold mb-4">{{ title }}</h2>
           <p class="text-gray-300 mb-4">{{ description }}</p>
           <button

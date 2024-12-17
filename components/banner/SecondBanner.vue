@@ -13,16 +13,20 @@
         Impressionism in Da Nang
       </p>
       <div class="flex justify-center space-x-4">
-        <button
-          class="px-4 py-2 bg-[#c2a37d] text-gray-900 rounded font-semibold hover:opacity-90"
-        >
-          Join Today
-        </button>
-        <button
-          class="px-4 py-2 bg-gray-700 text-white rounded font-semibold hover:opacity-90"
-        >
-          Buy Tickets
-        </button>
+        <nuxt-link to="/museums">
+          <button
+            class="px-4 py-2 bg-[#c2a37d] text-gray-900 rounded font-semibold hover:opacity-90"
+          >
+            Join Today
+          </button>
+        </nuxt-link>
+        <nuxt-link to="/events">
+          <button
+            class="px-4 py-2 bg-gray-700 text-white rounded font-semibold hover:opacity-90"
+          >
+            Buy Tickets
+          </button>
+        </nuxt-link>
       </div>
     </div>
   </div>

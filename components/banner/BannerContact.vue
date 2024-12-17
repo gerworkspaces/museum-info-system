@@ -11,9 +11,11 @@
       <button class="bg-[#B2A28C] text-white py-2 px-6 rounded">
         Next Event
       </button>
-      <button class="bg-[#808080] text-white py-2 px-6 rounded">
-        Contact Us
-      </button>
+      <nuxt-link to="/home/feedback">
+        <button class="bg-[#808080] text-white py-2 px-6 rounded">
+          Contact Us
+        </button>
+      </nuxt-link>
     </div>
   </section>
 </template>

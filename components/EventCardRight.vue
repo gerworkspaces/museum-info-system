@@ -27,11 +27,11 @@
           alt="Event img"
           class="min-w-96 h-72 object-cover rounded-lg"
         />
-        <img
+        <!-- <img
           :src="plusImg"
           alt="Plus icon"
           class="absolute top-14 right-4 w-32 h-40"
-        />
+        /> -->
       </div>
     </div>
   </section>
