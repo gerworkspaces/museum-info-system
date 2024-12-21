@@ -1,6 +1,6 @@
 import { defineEventHandler, readBody, getQuery } from "h3";
 import pool from "../../database/db";
-import { ResultSetHeader } from "mysql2/promise";
+import type { ResultSetHeader } from "mysql2/promise";
 
 // Thêm vai trò
 export const addRole = defineEventHandler(async (event) => {

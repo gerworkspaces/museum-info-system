@@ -26,7 +26,8 @@ export default defineNuxtConfig({
     "/tickets/detail": { redirect: "/home/tickets/detail" },
     "/events": { redirect: "/home/events" },
     "/museums": { redirect: "/home/museums" },
-    
+    "/profile": { redirect: "/home/profile" },
+
     // Admin
     "/museum-management": { redirect: "/admin/museum-management" },
     "/post-management": { redirect: "/admin/post-management" },

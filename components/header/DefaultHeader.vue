@@ -53,19 +53,27 @@
               </button>
             </nuxt-link>
           </div>
-          <div v-if="userStore.userInfo" class="relative mx-4 dropdown-container wrap-dropdown">
-            <Icon icon="lets-icons:user-fill" width="48" height="48" />
+          <div
+            v-if="userStore.userInfo"
+            class="relative mx-4 dropdown-container wrap-dropdown"
+          >
+            <img
+              :src="`/images/${userStore.userInfo?.image}`"
+              alt="Avatar"
+              class="h-24 w-24 rounded-full border border-gray-300"
+            />
+            <!-- <Icon icon="lets-icons:user-fill" width="48" height="48" /> -->
             <!-- Dropdown menu -->
             <div
               class="dropdown-menu absolute right-0 text-black mt-2 w-40 bg-white border rounded shadow-lg hidden z-10"
             >
-              <ul class="flex flex-col text-left">
+              <ul class="flex flex-col visible text-left">
                 <li>
                   <nuxt-link
-                    to="/home/profile"
+                    to="/profile"
                     class="block px-4 py-2 hover:bg-gray-100"
-                    >Profile</nuxt-link
-                  >
+                    >Profile
+                  </nuxt-link>
                 </li>
                 <li>
                   <a
@@ -91,6 +99,7 @@ import { useRouter } from "vue-router"; // Import router
 
 const userStore = useUserStore();
 const router = useRouter();
+const { handleFileInput, files } = useFileStorage({ clearOldFiles: false });
 
 const logout = async () => {
   try {
@@ -104,7 +113,6 @@ const logout = async () => {
     console.error("Logout failed:", error);
   }
 };
-
 </script>
 
 <style scoped>

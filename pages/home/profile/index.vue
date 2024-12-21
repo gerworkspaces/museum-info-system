@@ -2,6 +2,14 @@
   <!-- <div>
     {{ userProfile.userInfo }}
   </div> -->
+  <!-- <div class="user-ticket-info">
+    <h2>{{ user.name }}</h2>
+    <p>Email: {{ user.email }}</p>
+    <p>Event: {{ event.name }}</p>
+    <p>Date: {{ event.date }}</p>
+    <p>Ticket Number: {{ ticket.number }}</p>
+  </div> -->
+
   <div
     class="text-white p-8 container mx-auto mt-8"
     style="background-color: rgba(128, 128, 128, 0.5)"
@@ -31,21 +39,14 @@
 
       <div class="my-8 w-1/2">
         <form @submit.prevent="saveProfile" class="mb-6 px-12 py-8 text-black">
-          <!-- <input
-            v-model="saveProfile.full_name"
-            type="text"
-            placeholder="Your name*"
-            class="w-full p-2 mb-4 rounded"
-            required
-          /> -->
           <input
             v-model="saveProfile.name"
             type="text"
-            placeholder="Your name*"
+            placeholder="Your phone number"
             class="w-full p-2 mb-4 rounded"
             required
           />
-          <!-- <button
+          <button
             type="submit"
             class="bg-brown-500 text-white px-8 py-2 rounded-lg bg-[#B2A28C] flex justify-center"
           >
@@ -57,7 +58,7 @@
               style="color: white"
             />
             Save
-          </button> -->
+          </button>
         </form>
       </div>
     </div>
@@ -66,13 +67,15 @@
 
 <script lang="ts" setup>
 import { useUserStore } from "~/stores/user-store";
+import type { UserResponse } from "~/types/user";
 
 const userProfile = useUserStore();
+
+const profile = ref<UserResponse>();
 
 // const saveProfile = async () => {};
 const saveProfile = async () => {
   // await userProfile.updateUserProfile(saveProfile);
-  console.log(saveProfile);
 };
 </script>
 
