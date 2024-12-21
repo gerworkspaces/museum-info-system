@@ -188,29 +188,29 @@ INSERT INTO categories VALUES
 ('modern', 'Hiện đại');
 
 INSERT INTO event_tickets VALUES 
-(1,100,98,50.00,'Vé triển lãm cổ vật 1','wood-and-glass.png','Vé dành cho triển lãm cổ vật'),
-(2,150,148,75.00,'Vé triển lãm cổ vật 2','people-and-party.png','Vé VIP cho triển lãm cổ vật'),
-(3,120,118,40.00,'Vé triển lãm tranh hiện đại 1','girl-and-boat.png','Vé dành cho triển lãm tranh hiện đại'),
-(4,200,199,60.00,'Vé triển lãm tranh hiện đại 2','classic-people.png','Vé VIP cho triển lãm tranh hiện đại'),
-(5,250,249,80.00,'Vé tham quan ngày hội khoa học 1','pic-and-pic.png','Vé dành cho ngày hội khoa học'),
-(6,300,299,100.00,'Vé ngày hội khoa học 2','girl-and-child.png','Vé gia đình cho ngày hội khoa học'),
-(7,150,149,70.00,'Vé tham gia lễ hội văn hóa 1','culture-festival.png','Vé dành cho lễ hội văn hóa'),
-(8,180,179,55.00,'Vé triển lãm công nghệ 1','tech-exhibit.png','Vé dành cho triển lãm công nghệ'),
-(9,220,219,90.00,'Vé hòa nhạc 1','concert.png','Vé dành cho buổi hòa nhạc'),
-(10,220,220,120.00,'Vé triển lãm kiến trúc 1','architecture-exhibit.png','Vé dành cho triển lãm kiến trúc'),
-(11,220,220,88.00,'Vé tham gia ngày hội thiên nhiên 1','nature-festival.png','Vé dành cho ngày hội thiên nhiên'),
-(12,220,220,99.00,'Vé triển lãm văn học 1','literature-exhibit.png','Vé dành cho triển lãm văn học');
+(1,100,98,50.00,'Vé triển lãm cổ vật thao tác bàn mài.','bàn mài.jpg','Vé dành cho các thủ công làng nghề lâu đời.'),
+(2,150,148,75.00,'Vé triển lãm tranh nghệ thuật hiện đại.','vogueart.jpg','Vé dành cho người Việt và cả người người nước ngoài.'),
+(3,120,118,40.00,'Sự kiện Triển lãm tranh hiện đại','tranh_hien_dai.jpeg','Vé tổ chức các hoạt động giáo dục về khoa học từ các nhà nghiên cứu của tổ chức'),
+(4,200,199,60.00,'Vé triển lãm tranh thiên nhiên','bao-tang-thien-nhien.jpg','Vé VIP cho triển lãm tranh thiên nhiên'),
+(5,250,249,80.00,'Vé triển lãm công nghệ','event-science.jpg','Giới thiệu các công nghệ mới. Tổ chức các hoạt động giáo dục về khoa học từ các nhà nghiên cứu của tổ chức'),
+(6,300,299,100.00,'Vé lễ hội Văn hóa','girl-and-child.png','Vé khám phá văn hóa các dân tộc'),
+(7,150,149,70.00,'Vé tham gia lễ hội kiến trúc','kien_truc.webp','Vé dành cho lễ hội kiến trúc'),
+(8,180,179,55.00,'Vé hoà nhạc các tác phẩm','nhac-cu.jpg','Vé dành cho hoà nhạc các tác phẩm công nghệ'),
+(9,220,219,90.00,'Vé hòa nhạc','hoa_nhac.jpeg','Vé dành cho buổi hòa nhạc'),
+(10,220,220,120.00,'Vé Triển lãm kiến trúc ','architecture-exhibit.png','Vé dành cho triển lãm kiến trúc'),
+(11,220,220,88.00,'Vé tham gia ngày hội thiên nhiên ','bao-tang-thien-nhienn.jpg','Vé dành cho ngày hội thiên nhiên'),
+(12,220,220,99.00,'Vé Triển lãm văn học 1','literature-exhibit.png','Vé dành cho triển lãm văn học');
 
 INSERT INTO events VALUES 
 (1,'Sự kiện Triển lãm cổ vật thao tác bàn mài.','2024-12-25','bàn mài.jpg','Trưng bày Bàn mài – khai quật tại di chỉ khảo cổ học Vườn đình Khuê Bắc, phường Hòa Hải, quận Ngũ Hành Sơn, thành phố Đà Nẵng, năm 2001, có niên đại thế kỷ thứ II sau công nguyên (thuộc giai đoạn văn hóa sơ kỳ kim khí tiền Sa Huỳnh) (chất liệu: đá).',1),
-(2,'Sự kiện Triển lãm tranh nghệ thuật hiện đại.','2024-12-15','vogueart0.jpg','Trưng bày các tác phẩm tranh vẽ và các nghệ thuật hiện đại ngày nay đang có xu hướng được nhiều người quan tâm (chất liệu: sơn dầu).',2),
-(3,'Sự kiện Các đồng sáng lập nghiên cứu khoa học.','2024-12-20','event-science.jpg','Tổ chức các hoạt động giáo dục về khoa học từ các nhà nghiên cứu của tổ chức',3),
-(4,'Ngày hội thiên nhiên','2025-01-25','','Khám phá thiên nhiên và động vật',4),
-(5,'Triển lãm công nghệ','2025-01-10','','Giới thiệu các công nghệ mới',5),
-(6,'Lễ hội Văn hóa','2024-12-25','','Khám phá văn hóa các dân tộc',6),
-(7,'Triển lãm kiến trúc','2025-01-20','','Trưng bày các mẫu kiến trúc độc đáo',7),
-(8,'Buổi hòa nhạc','2025-01-15','','Hòa nhạc các tác phẩm nổi tiếng',8),
-(9,'Triển lãm văn học','2025-02-01','','Trưng bày các tác phẩm văn học nổi tiếng',9);
+(2,'Sự kiện Triển lãm tranh nghệ thuật hiện đại.','2024-12-15','vogueart.jpg','Trưng bày các tác phẩm tranh vẽ và các nghệ thuật hiện đại ngày nay đang có xu hướng được nhiều người quan tâm (chất liệu: sơn dầu).',2),
+(3,'Sự kiện Triển lãm tranh hiện đại.','2024-12-20','tranh_hien_dai.jpeg','Tổ chức các hoạt động giáo dục về khoa học từ các nhà nghiên cứu của tổ chức',3),
+(4,'Sự kiện Ngày hội thiên nhiên','2025-01-25','bao-tang-thien-nhien.jpg','Khám phá thiên nhiên và động vật',4),
+(5,'Triển lãm công nghệ','2025-01-10','event-science.jpg','Giới thiệu các công nghệ mới',5),
+(6,'Lễ hội Văn hóa Dân tộc','2024-12-25','le_hoi_van_hoa.jpg','Khám phá văn hóa các dân tộc',6),
+(7,'Triển lãm kiến trúc','2025-01-20','kien_truc.webp','Trưng bày các mẫu kiến trúc độc đáo',7),
+(8,'Sự vật cổ đại thời xa xưa','2025-01-15','binh-gom-kendy.jpg','Các hiện vật trưng bày da dạng và đặc sắc',8),
+(9,'Triển lãm văn học','2025-02-01','inside-museum.png','Trưng bày các tác phẩm văn học nổi tiếng',9);
 
 INSERT INTO museums VALUES 
 (1,'Bảo tàng Lịch sử Quốc gia','Đà Nẵng','Trưng bày các hiện vật lịch sử của thành phố Đà Nẵng','museum-img-1.png','history','08:30:00','13:30:00'),
@@ -258,7 +258,7 @@ INSERT INTO review_event VALUES
 (2,2,2,'Đánh giá Triển lãm tranh hiện đại','quang.nghia@museum.com','Quang Nghĩa','Tranh rất đẹp, nhưng không gian hơi chật chội.',4),
 (3,3,3,'Đánh giá Ngày hội Khoa học','phuocdinh@museum.com','Phước Định','Hoạt động giáo dục rất bổ ích cho trẻ em.',5),
 (4,4,4,'Đánh giá Lễ hội Văn hóa','bob.brown@museum.com','Bob','Brown Lễ hội văn hóa rất đặc sắc, tôi đã có những trải nghiệm tuyệt vời.',5),
-(5,5,5,'Đánh giá Triển lãm công nghệ','charlie.white@museum.com','Charlie White','Triển lãm công nghệ rất ấn tượng, nhưng giá vé hơi cao.',3);
+(6,3,3,'give some my opinion','quangvo@museum.com','Quang Vo','Good choice for you',3);
 
 INSERT INTO roles VALUES (1,'Admin'),(2,'User'),(3,'Editor');
 
