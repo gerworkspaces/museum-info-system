@@ -3,9 +3,6 @@ Capstone2-C2SE.03
 
 # Membership
 - Quang
-- Định
-- Chỉnh
-- Nghĩa
 
 # Nuxt Minimal Starter
 
